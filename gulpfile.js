@@ -6,7 +6,8 @@ var gulp        = require('gulp'),
     realFavicon = require('gulp-real-favicon'),
     fs          = require('fs'),
     browserSync = require('browser-sync').create(),
-    injectSvg   = require('gulp-inject-svg');
+    injectSvg   = require('gulp-inject-svg'),
+    critical    = require('critical').stream;
 
 
 
@@ -18,6 +19,7 @@ gulp.task('html', function() {
         .pipe(realFavicon.injectFaviconMarkups(
                 JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code))
         .pipe(injectSvg())
+        .pipe(critical(require('./critical.config.js')))
         .pipe(gulp.dest('build'))
         .pipe(browserSync.stream());
 });
@@ -45,9 +47,9 @@ gulp.task('js', function() {
 
 
 gulp.task('muilessium', function() {
-    gulp.src('node_modules/muilessium/dist/css/muilessium-0.1.21.min.css')
+    gulp.src('node_modules/muilessium/dist/css/muilessium.css')
         .pipe(gulp.dest('build/css'));
-    gulp.src('node_modules/muilessium/dist/js/muilessium-0.1.21.min.js')
+    gulp.src('node_modules/muilessium/dist/js/muilessium.js')
         .pipe(gulp.dest('build/js'));
 });
 
