@@ -8,6 +8,8 @@ This is a starter kit for creating simple and lightweight HTML templates.
 git clone ...
 cd html-template-starter-kit
 npm i
+gulp favicon
+gulp css
 gulp server
 ```
 
