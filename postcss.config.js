@@ -7,9 +7,7 @@ module.exports = {
     maps: false,
     plugins: [
         require('postcss-import')(),
-        require('lost')(),
         require('postcss-nested')(),
-        require('postcss-simple-vars')(),
         require('postcss-cssnext')({
             warnForDuplicates: false,
             browsers: supportedBrowsers

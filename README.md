@@ -1,7 +1,7 @@
 # HTML Template - Starter Kit
 This is a starter kit for creating simple and lightweight HTML templates.
 
-![starter kit](https://habrastorage.org/web/64c/4ce/aff/64c4ceaff49e40d7975df0cd0125696c.png "Starter Kit")
+![starter kit](https://habrastorage.org/web/973/9a0/b19/9739a0b1913449f2a1792ab5b2f89063.png "Starter Kit")
 
 ## Getting started
 ```sh
