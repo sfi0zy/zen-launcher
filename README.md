@@ -1,16 +1,26 @@
 # HTML Template - Starter Kit
-This is a starter kit for creating simple and lightweight HTML templates.
+This is a starter kit for HTML templates.
 
 ![starter kit](https://habrastorage.org/web/973/9a0/b19/9739a0b1913449f2a1792ab5b2f89063.png "Starter Kit")
 
+## Features
+- HTML: Pug, realFavicon, SVG injection and critical CSS
+- CSS: LESS syntax, PostCSS (cssnext, postcss-animation, postcss-fixes, doiuse), cssnano
+- JS: Babel (babel-preset-env), sourcemaps
+- Muilessium framework
+- Browsersync
+
 ## Getting started
 ```sh
-git clone ...
+git clone https://github.com/sfi0zy/html-template-starter-kit.git
 cd html-template-starter-kit
 npm i
-gulp favicon
-gulp css
-gulp server
+gulp
+```
+
+## Production mode
+```sh
+gulp --production
 ```
 
 ## License

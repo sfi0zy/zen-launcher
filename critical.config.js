@@ -1,10 +1,10 @@
 module.exports = {
-    base: 'build/',
+    base: 'dist/',
     inline: true,
     minify: true,
     css: [
-        'build/css/main.css',
-        'build/css/muilessium.css'
+        'dist/css/main.min.css',
+        'dist/css/muilessium.min.css'
     ],
     ignore: ['@font-face',/url\(/]
 };

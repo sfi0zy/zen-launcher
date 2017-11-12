@@ -1,35 +1,41 @@
 {
   "name": "html-template-starter-kit",
-  "version": "1.0.0",
-  "description": "Starter kit for HTML template (Pug, PostCSS, Babel, Gulp, Webpack).",
+  "version": "1.0.1",
+  "description": "Starter kit for HTML template (Pug, LESS, PostCSS, Babel, Gulp, Webpack).",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ivan Bogachev",
   "license": "MIT",
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ],
   "devDependencies": {
-    "babel-core": "^6.24.1",
-    "babel-loader": "7.1.1",
-    "babel-preset-env": "^1.4.0",
-    "browser-sync": "^2.18.8",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "browser-sync": "^2.18.13",
     "critical": "^0.8.4",
-    "doiuse": "^2.6.0",
+    "doiuse": "^4.0.0",
     "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
     "gulp-cssnano": "^2.1.2",
     "gulp-inject-svg": "^0.1.9",
-    "gulp-postcss": "^6.4.0",
+    "gulp-less": "^3.3.2",
+    "gulp-postcss": "^7.0.0",
     "gulp-pug": "^3.3.0",
     "gulp-real-favicon": "^0.2.2",
-    "install": "^0.9.6",
-    "muilessium": "^0.1.35",
-    "npm": "^4.5.0",
+    "gulp-rename": "^1.2.2",
+    "muilessium": "^0.2.4",
     "postcss-animation": "0.0.12",
-    "postcss-cssnext": "^2.10.0",
-    "postcss-fixes": "^1.4.2",
-    "postcss-import": "^9.1.0",
-    "postcss-nested": "^1.0.1",
-    "webpack": "^2.4.1",
-    "webpack-stream": "^3.2.0"
+    "postcss-cssnext": "^3.0.2",
+    "postcss-fixes": "^2.0.1",
+    "run-sequence": "^2.2.0",
+    "traceur": "0.0.111",
+    "uglifyjs-webpack-plugin": "^1.0.0-beta.3",
+    "webpack-stream": "^4.0.0",
+    "yargs": "^9.0.1"
   }
 }
