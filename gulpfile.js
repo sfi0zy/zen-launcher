@@ -1,11 +1,16 @@
 let gulp         = require('gulp'),
     fs           = require('fs'),
+    packageInfo  = JSON.parse(fs.readFileSync('./package.json')),
+    gulpif       = require('gulp-if'),
+    size         = require('gulp-size'),
     run          = require('run-sequence'),
     argv         = require('yargs').argv,
     rename       = require('gulp-rename'),
     pug          = require('gulp-pug'),
+    sourcemaps   = require('gulp-sourcemaps'),
     less         = require('gulp-less'),
     postcss      = require('gulp-postcss'),
+    doiuse       = require('doiuse'),
     cssnano      = require('gulp-cssnano'),
     webpack      = require('webpack-stream'),
     realFavicon  = require('gulp-real-favicon'),
@@ -16,6 +21,10 @@ let gulp         = require('gulp'),
 
 
 const ENVIRONMENT = argv.production ? 'production' : 'development';
+
+console.log('\x1b[33m%s %s\x1b[0m\n  ⇒ %s', ' ',
+    ENVIRONMENT.toUpperCase(),
+    packageInfo.name + ' v' + packageInfo.version);
 
 
 gulp.task('html', () => {
@@ -34,10 +43,14 @@ gulp.task('html', () => {
 
 gulp.task('css', () => {
     return gulp.src('./src/less/main.less')
+        .pipe(gulpif(ENVIRONMENT === 'development', sourcemaps.init()))
         .pipe(less())
         .pipe(postcss())
         .pipe(cssnano({ discardComments: { removeAll: true }}))
+        .pipe(gulpif(ENVIRONMENT === 'development', sourcemaps.write()))
+        .pipe(gulpif(ENVIRONMENT === 'production', postcss([doiuse(require('./doiuse.config.js'))])))
         .pipe(rename('main.min.css'))
+        .pipe(size({ showFiles: true }))
         .pipe(gulp.dest('./dist/css'))
         .pipe(browserSync.stream());
 });
@@ -116,8 +129,8 @@ gulp.task('browser-sync', () => {
 gulp.task('server', ['browser-sync']);
 
 
-if (ENVIRONMENT === 'production') {
-    gulp.task('default', () => {
+gulp.task('default', () => {
+    if (ENVIRONMENT === 'production') {
         run('clean-dist',
             'favicon',
             'css',
@@ -125,9 +138,7 @@ if (ENVIRONMENT === 'production') {
             'html',
             'js',
             'images');
-    });
-} else {
-    gulp.task('default', () => {
+    } else {
         run('favicon',
             'css',
             'muilessium',
@@ -135,6 +146,6 @@ if (ENVIRONMENT === 'production') {
             'js',
             'images',
             'server');
-    });
-}
+    }
+});
 
