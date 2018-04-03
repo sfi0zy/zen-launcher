@@ -13,6 +13,7 @@ let gulp         = require('gulp'),
     doiuse       = require('doiuse'),
     cssnano      = require('gulp-cssnano'),
     webpack      = require('webpack-stream'),
+    eslint       = require('gulp-eslint'),
     realFavicon  = require('gulp-real-favicon'),
     injectSvg    = require('gulp-inject-svg'),
     critical     = require('critical').stream,
@@ -62,6 +63,14 @@ gulp.task('js', () => {
         .pipe(rename('main.min.js'))
         .pipe(gulp.dest('./dist/js'))
         .pipe(browserSync.stream());
+});
+
+
+gulp.task('lint-js', () => {
+    return gulp.src('./src/js/*.js')
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 });
 
 
@@ -136,6 +145,7 @@ gulp.task('default', () => {
             'css',
             'muilessium',
             'html',
+            'lint-js',
             'js',
             'images');
     } else {

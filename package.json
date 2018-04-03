@@ -1,7 +1,7 @@
 {
   "name": "html-template-starter-kit",
-  "version": "1.0.2",
-  "description": "Starter kit for HTML template (Pug, LESS, PostCSS, Babel, Gulp, Webpack, Muilessium).",
+  "version": "1.0.3",
+  "description": "Starter kit for HTML templates (Pug, LESS, PostCSS, Babel, Gulp, Webpack, Muilessium).",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,9 +19,12 @@
     "browser-sync": "^2.18.13",
     "critical": "^0.8.4",
     "doiuse": "^4.0.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.10.0",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-cssnano": "^2.1.2",
+    "gulp-eslint": "^4.0.2",
     "gulp-if": "^2.0.2",
     "gulp-inject-svg": "^0.1.9",
     "gulp-less": "^3.3.2",

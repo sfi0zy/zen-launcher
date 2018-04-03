@@ -5,8 +5,8 @@ This is a starter kit for HTML templates.
 
 ## Features
 - HTML: Pug, realFavicon, SVG injection and critical CSS
-- CSS: LESS syntax, PostCSS (cssnext, postcss-animation, postcss-fixes, doiuse), cssnano
-- JS: Babel (babel-preset-env), sourcemaps
+- CSS: LESS syntax, sourcemaps, PostCSS (cssnext, postcss-animation, postcss-fixes, doiuse), cssnano
+- JS: Babel (babel-preset-env), eslint (extended airbnb-base config), sourcemaps
 - Muilessium framework
 - Browsersync
 
