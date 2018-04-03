@@ -1,7 +1,7 @@
 {
   "name": "html-template-starter-kit",
-  "version": "1.0.1",
-  "description": "Starter kit for HTML template (Pug, LESS, PostCSS, Babel, Gulp, Webpack).",
+  "version": "1.0.2",
+  "description": "Starter kit for HTML template (Pug, LESS, PostCSS, Babel, Gulp, Webpack, Muilessium).",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
