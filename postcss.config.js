@@ -10,6 +10,7 @@ module.exports = {
             }
         }),
         require('postcss-animation')(),
-        require('postcss-fixes')({ preset: 'safe' })
+        require('postcss-fixes')({ preset: 'safe' }),
+        require('doiuse')(require('./doiuse.config.js'))
     ]
 };
