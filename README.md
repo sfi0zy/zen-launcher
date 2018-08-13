@@ -21,10 +21,10 @@ npm i
 
 ```sh
 # development mode with sourcemaps & browsersync
-gulp server
+npm run dev
 
 # production mode with linting & minifications
-gulp --production
+npm run prod
 ```
 
 ## License

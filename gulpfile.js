@@ -137,17 +137,16 @@ gulp.task('default', (done) => {
         gulp.series(
             'clean-dist',
             'favicon',
-            'css',
             'muilessium',
+            'css',
             'html',
             'js',
             'images'
         )();
     } else {
         gulp.series(
-            'favicon',
-            'css',
             'muilessium',
+            'css',
             'html',
             'js',
             'images'

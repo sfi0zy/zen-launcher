@@ -16,6 +16,10 @@
     "last 2 versions",
     "ie >= 11"
   ],
+  "scripts": {
+    "dev": "./node_modules/.bin/gulp server",
+    "prod": "./node_modules/.bin/gulp --production"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
