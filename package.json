@@ -1,12 +1,10 @@
 {
   "name": "html-template",
-  "version": "1.0.4",
-  "description": "HTML template (Pug, LESS, PostCSS, Babel, Gulp, Webpack, Muilessium)",
+  "version": "1.0.5",
+  "description": "HTML template",
+  "keywords": "html, pug, css, less, postcss, javascript, gulp, webpack, template",
   "main": "gulpfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Ivan Bogachev",
+  "author": "Ivan Bogachev <sfi0zy@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
