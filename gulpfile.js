@@ -1,19 +1,19 @@
-const gulp         = require('gulp'),
-      $            = require('gulp-load-plugins')(),
-      fs           = require('fs'),
-      package      = JSON.parse(fs.readFileSync('./package.json')),
-      argv         = require('yargs').argv,
-      critical     = require('critical').stream,
-      webpack      = require('webpack-stream'),
-      browserSync  = require('browser-sync').create();
+const gulp         = require('gulp');
+const $            = require('gulp-load-plugins')();
+const fs           = require('fs');
+const argv         = require('yargs').argv;
+const critical     = require('critical').stream;
+const webpack      = require('webpack-stream');
+const browserSync  = require('browser-sync').create();
 
 
+const pkg         = JSON.parse(fs.readFileSync('./package.json'));
 const ENVIRONMENT = argv.production ? 'production' : 'development';
 
 
 console.log('\x1b[33m%s %s\x1b[0m\n  ⇒ %s', ' ',
     ENVIRONMENT.toUpperCase(),
-    package.name + ' v' + package.version);
+    `${pkg.name} v${pkg.version}`);
 
 
 
@@ -35,7 +35,7 @@ gulp.task('css', () => {
         .pipe($.if(ENVIRONMENT === 'development', $.sourcemaps.init()))
         .pipe($.less())
         .pipe($.postcss())
-        .pipe($.cssnano({ discardComments: { removeAll: true }}))
+        .pipe($.cssnano({ discardComments: { removeAll: true } }))
         .pipe($.if(ENVIRONMENT === 'development', $.sourcemaps.write()))
         .pipe($.rename('main.min.css'))
         .pipe($.size({ showFiles: true }))
@@ -156,5 +156,11 @@ gulp.task('default', (done) => {
     done();
 });
 
-gulp.task('server', gulp.series('default', 'browser-sync'));
+
+
+gulp.task('server', (done) => {
+    gulp.series('default', 'browser-sync')();
+
+    done();
+});
 
