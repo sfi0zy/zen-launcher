@@ -15,6 +15,9 @@ console.log('\x1b[33m%s %s\x1b[0m\n  ⇒ %s', ' ',
     ENVIRONMENT.toUpperCase(),
     `${pkg.name} v${pkg.version}`);
 
+console.log('\x1b[36m%s %s\x1b[0m\n  ⇒ %s', ' ',
+    'Browsers:', pkg.browserslist);
+
 
 
 gulp.task('html', () => {
