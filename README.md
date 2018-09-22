@@ -1,6 +1,6 @@
 # HTML Template
 
-![starter kit](https://habrastorage.org/web/973/9a0/b19/9739a0b1913449f2a1792ab5b2f89063.png "Starter Kit")
+![HTML Template](https://habrastorage.org/web/973/9a0/b19/9739a0b1913449f2a1792ab5b2f89063.png "HTML Template")
 
 ## Features
 - HTML: Pug, realFavicon, SVG injection and critical CSS
@@ -12,8 +12,8 @@
 
 ## Getting started
 ```sh
-git clone https://github.com/sfi0zy/html-template-starter-kit.git
-cd html-template-starter-kit
+git clone https://github.com/sfi0zy/html-template.git
+cd html-template
 npm i
 ```
 
