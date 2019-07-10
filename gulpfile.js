@@ -1,44 +1,96 @@
 const gulp         = require('gulp');
 const $            = require('gulp-load-plugins')();
 const fs           = require('fs');
+const path         = require('path');
 const argv         = require('yargs').argv;
-const critical     = require('critical').stream;
 const webpack      = require('webpack-stream');
+const critical     = require('critical').stream;
 const browserSync  = require('browser-sync').create();
+const dss          = require('./gulp-dss.js');
+
+
+
+require('colors');
+
 
 
 const pkg         = JSON.parse(fs.readFileSync('./package.json'));
 const ENVIRONMENT = argv.production ? 'production' : 'development';
 
 
-console.log('\x1b[33m%s %s\x1b[0m\n  ⇒ %s', ' ',
-    ENVIRONMENT.toUpperCase(),
-    `${pkg.name} v${pkg.version}`);
 
-console.log('\x1b[36m%s %s\x1b[0m\n  ⇒ %s', ' ',
-    'Browsers:', pkg.browserslist);
+// -----------------------------------------------------------------------------
+//  INFO
+// -----------------------------------------------------------------------------
 
 
+console.log(`${(new Date()).toString().white}\n`);
+console.log(`> ${argv.$0} ${argv._}`);
+console.log(ENVIRONMENT.toUpperCase().yellow);
+console.log(`${pkg.name.red} ${pkg.version.green}\n`);
+console.log('%s\n'.blue, pkg.browserslist);
+console.log('DEV DEPENDENCIES:');
 
-gulp.task('html', () => {
-    return gulp.src('src/pug/pages/*.pug')
-        .pipe($.pug({ pretty: true }))
-        .pipe($.realFavicon.injectFaviconMarkups(
-            JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code))
-        .pipe($.injectSvg())
-        .pipe(critical(require('./critical.config.js')))
-        .pipe(gulp.dest('dist'))
+let isDependenciesSaved = true;
+
+Object.keys(pkg.devDependencies).forEach((dependency) => {
+    const depPackage = JSON.parse(
+        fs.readFileSync(
+            path.join('node_modules', dependency, 'package.json'), 'utf-8'));
+
+    if (depPackage._requested.registry) {
+        if (depPackage.version !== pkg.devDependencies[dependency]) {
+            console.log('NPM %s@%s'.green, dependency, depPackage.version.red);
+            isDependenciesSaved = false;
+        } else {
+            console.log('NPM %s@%s'.green, dependency, depPackage.version);
+        }
+    } else {
+        if (depPackage._resolved !== pkg.devDependencies[dependency]) {
+            console.log('--- %s@%s'.blue, dependency, depPackage._resolved.red);
+            isDependenciesSaved = false;
+        } else {
+            console.log('--- %s@%s'.blue, dependency, depPackage._resolved);
+        }
+    }
+});
+
+if (!isDependenciesSaved) {
+    console.log('Dependencies in the package.json are not saved correctly.'.red);
+    console.log('Run `npm run save-installed` to fix it.'.red);
+}
+
+console.log('\n\n\n');
+
+
+
+// -----------------------------------------------------------------------------
+//  BUILD
+// -----------------------------------------------------------------------------
+
+
+
+gulp.task('build:lint-js', () => {
+    return gulp.src('./src/**/*.js')
+        .pipe($.eslint())
+        .pipe($.eslint.format());
+});
+
+
+gulp.task('build:compile-js', () => {
+    return gulp.src('./src/main.js')
+        .pipe(webpack(require('./webpack.config.js')[ENVIRONMENT]))
+        .pipe($.rename('main.min.js'))
+        .pipe(gulp.dest('./dist/js'))
         .pipe(browserSync.stream());
 });
 
 
-
-gulp.task('css', () => {
-    return gulp.src('./src/less/main.less')
+gulp.task('build:compile-less', () => {
+    return gulp.src('./src/main.less')
         .pipe($.if(ENVIRONMENT === 'development', $.sourcemaps.init()))
         .pipe($.less())
         .pipe($.postcss())
-        .pipe($.cssnano({ discardComments: { removeAll: true } }))
         .pipe($.if(ENVIRONMENT === 'development', $.sourcemaps.write()))
         .pipe($.rename('main.min.css'))
         .pipe($.size({ showFiles: true }))
@@ -47,44 +99,32 @@ gulp.task('css', () => {
 });
 
 
-
-gulp.task('js', () => {
-    if (ENVIRONMENT === 'production') {
-        gulp.src('./src/js/*.js')
-            .pipe($.eslint())
-            .pipe($.eslint.format())
-            .pipe($.eslint.failAfterError());
-    }
-
-    return gulp.src('./src/js/main.js')
-        .pipe(webpack(require('./webpack.config.js')[ENVIRONMENT]))
-        .pipe($.rename('main.min.js'))
-        .pipe(gulp.dest('./dist/js'))
+gulp.task('build:pages', () => {
+    return gulp.src('src/pages/*.pug')
+        .pipe($.pug({ pretty: true }))
+        .pipe($.realFavicon.injectFaviconMarkups(
+            JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code))
+        .pipe($.injectSvg())
+        .pipe(critical(require('./critical.config.js')))
+        .pipe(gulp.dest('./dist'))
         .pipe(browserSync.stream());
 });
 
 
-
-gulp.task('muilessium', (done) => {
-    gulp.src('node_modules/muilessium/dist/css/muilessium.min.css')
-        .pipe(gulp.dest('dist/css'));
-    gulp.src('node_modules/muilessium/dist/js/muilessium.min.js')
-        .pipe(gulp.dest('dist/js'));
-
-    done();
-});
-
-
-
-gulp.task('images', () => {
-    return gulp.src('src/images/*')
-        .pipe(gulp.dest('dist/images'))
+gulp.task('build:docs', () => {
+    return gulp.src('./src/components/**/*.less')
+        .pipe(dss({
+            pkg,
+            templatePath: './src/docs',
+            parsers: require('./dss.parsers.js'),
+            outputPath: './dist/docs'
+        }))
+        .pipe(gulp.dest('./dist/docs'))
         .pipe(browserSync.stream());
 });
 
 
-
-gulp.task('favicon', (done) => {
+gulp.task('build:favicon', (done) => {
     $.realFavicon.generateFavicon(
         require('./favicon.config.js'), () => {
             done();
@@ -93,76 +133,119 @@ gulp.task('favicon', (done) => {
 });
 
 
-
-gulp.task('clean-dist', () => {
-    return gulp.src('./dist', { read: false })
-        .pipe($.clean());
-});
-
-
-
-gulp.task('browser-sync', () => {
-    browserSync.init({
-        server: {
-            baseDir: './dist'
-        }
-    });
-
-    gulp.watch([
-        'src/pug/*.pug',
-        'src/pug/*/*.pug'
-    ], gulp.parallel('html'));
-
-    gulp.watch([
-        'src/less/*.less',
-        'src/less/*/*.less'
-    ], gulp.parallel('css', 'html'));
-
-    gulp.watch([
-        'src/js/*.js',
-        'src/js/*/*.js'
-    ],  gulp.parallel('js'));
-
-    gulp.watch([
-        'src/images/*'
-    ], gulp.parallel('images'));
-
-    gulp.watch([
-        'src/images/favicon.png'
-    ], gulp.parallel('favicon'));
-});
+gulp.task('build', gulp.series(
+    'build:lint-js',
+    'build:compile-js',
+    'build:compile-less',
+    'build:favicon',
+    'build:pages',
+    'build:docs'
+));
 
 
 
+// -----------------------------------------------------------------------------
+//  COPY FILES
+// -----------------------------------------------------------------------------
 
-gulp.task('default', (done) => {
-    if (ENVIRONMENT === 'production') {
-        gulp.series(
-            'clean-dist',
-            'favicon',
-            'muilessium',
-            'css',
-            'html',
-            'js',
-            'images'
-        )();
-    } else {
-        gulp.series(
-            'muilessium',
-            'css',
-            'html',
-            'js',
-            'images'
-        )();
-    }
+gulp.task('copy:muilessium', (done) => {
+    gulp.src('node_modules/muilessium/dist/muilessium-ui.min.css')
+        .pipe(gulp.dest('dist/css'));
+    gulp.src('node_modules/muilessium/dist/muilessium.min.js')
+        .pipe(gulp.dest('dist/js'));
+    gulp.src('node_modules/muilessium/dist/muilessium-ui.min.js')
+        .pipe(gulp.dest('dist/js'));
 
     done();
 });
 
 
+gulp.task('copy:images', () => {
+    return gulp.src('src/images/*')
+        .pipe(gulp.dest('dist/images'))
+        .pipe(browserSync.stream());
+});
 
-gulp.task('server', (done) => {
-    gulp.series('default', 'browser-sync')();
+
+gulp.task('copy', gulp.series(
+    'copy:muilessium',
+    'copy:images'
+));
+
+
+
+// -----------------------------------------------------------------------------
+//  CLEAN ./DIST
+// -----------------------------------------------------------------------------
+
+gulp.task('clean-dist', () => {
+    return gulp.src('./dist/*', { read: false })
+        .pipe($.clean());
+});
+
+
+
+// -----------------------------------------------------------------------------
+//  BROWSER-SYNC
+// -----------------------------------------------------------------------------
+
+gulp.task('browser-sync', () => {
+    browserSync.init({
+        server: {
+            baseDir: './dist'
+        },
+        files: ['./src/**']
+    });
+
+    gulp.watch([
+        './src/**/*.js',
+    ], gulp.series('build:compile-js'));
+
+    gulp.watch([
+        './src/**/*.less',
+    ], gulp.series('build:compile-less', 'build:docs'));
+
+    gulp.watch([
+        './src/pages/**/*.pug'
+    ], gulp.series('build:pages'));
+
+    gulp.watch([
+        './src/docs/*.pug'
+    ], gulp.series('build:docs'));
+});
+
+
+// -----------------------------------------------------------------------------
+//  DEFAULTS
+// -----------------------------------------------------------------------------
+
+gulp.task('default', (done) => {
+    switch (ENVIRONMENT) {
+        case 'production': {
+            gulp.series(
+                'clean-dist',
+                'copy',
+                'build'
+            )();
+
+            break;
+        }
+
+        case 'development': {
+            gulp.series(
+                'clean-dist',
+                'copy',
+                'build',
+                'browser-sync'
+            )();
+
+            break;
+        }
+
+        default: {
+            break;
+        }
+    }
 
     done();
 });

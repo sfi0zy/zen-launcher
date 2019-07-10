@@ -1,7 +1,9 @@
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+
 module.exports = {
     development: {
+        mode: 'development',
         devtool: 'eval',
         module: {
             rules: [
@@ -11,7 +13,7 @@ module.exports = {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['env']
+                            presets: ['@babel/preset-env']
                         }
                     }
                 }
@@ -20,6 +22,7 @@ module.exports = {
     },
 
     production: {
+        mode: 'production',
         module: {
             rules: [
                 {
@@ -28,14 +31,20 @@ module.exports = {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['env']
+                            presets: ['@babel/preset-env']
                         }
                     }
                 }
             ]
         },
         plugins: [
-            new UglifyJSPlugin()
+            new UglifyJSPlugin({
+                uglifyOptions: {
+                    output: {
+                        comments: false
+                    }
+                }
+            })
         ]
     }
 };

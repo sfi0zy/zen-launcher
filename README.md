@@ -1,20 +1,20 @@
 # HTML Template
 
-![HTML Template](https://habrastorage.org/web/973/9a0/b19/9739a0b1913449f2a1792ab5b2f89063.png "HTML Template")
+![HTML Template](https://habrastorage.org/webt/kj/5h/xy/kj5hxy0uwpor2jjkaoxdkqpfqb0.png)
 
 ## Features
-- HTML: Pug, realFavicon, SVG injection and critical CSS
-- CSS: LESS syntax, sourcemaps, PostCSS (cssnext, postcss-animation, postcss-fixes, doiuse), cssnano
-- JS: Babel (babel-preset-env), Webpack, eslint (extended airbnb-base config), sourcemaps
-- Gulp
+- Pug, realFavicon generator, SVG injection and critical CSS
+- LESS, PostCSS (preset-env, postcss-fixes, doiuse, cssnano) + sourcemaps
+- Babel (preset-env), ESlint (extended airbnb-base config) + sourcemaps
+- Docs
 - Browsersync
-- Muilessium framework included by default
+- Muilessium framework included
 
 ## Getting started
 ```sh
 git clone https://github.com/sfi0zy/html-template.git
 cd html-template
-npm i
+npm ci
 ```
 
 ## Usage
@@ -23,12 +23,18 @@ npm i
 # development mode with sourcemaps & browsersync
 npm run dev
 
-# production mode with linting & minifications
+# production mode with minifications
 npm run prod
 ```
+
+## Screenshot (docs)
+
+![](https://habrastorage.org/webt/vg/fy/rg/vgfyrgruwsmhaaifeaijfdhyl-8.png)
+
 
 ## License
 
 MIT License
 
-Copyright (c) 2016-2018 Ivan Bogachev
+Copyright (c) 2019 Ivan Bogachev
+

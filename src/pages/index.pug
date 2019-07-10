@@ -1,0 +1,22 @@
+extends ./layouts/default.pug
+
+block append head
+    //- ...
+
+block append footer
+    //- ...
+
+block content
+    .mui-hero-header.-full-height.-green-3-bg
+        .content
+            img.mui-image.-circle.-js-lazy-load._shadow-3(data-src='./images/favicon.png' alt='Logo' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
+            noscript
+                img.mui-image.-circle._shadow-3(src='./images/favicon.png' alt='Logo')
+            h1 HTML template 2
+            ._separate-1
+                span Ivan Bogachev (
+                a(href='https://sfi0zy.github.io/') @sfi0zy
+                span ), 2019
+        .mui-ribbon.-classic.-top.-right
+            a(href='./docs' target='_blank') Docs
+

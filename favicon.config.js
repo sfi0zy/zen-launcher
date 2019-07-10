@@ -15,7 +15,7 @@ module.exports = {
         desktopBrowser: {},
         windows: {
             pictureAspect: 'noChange',
-            backgroundColor: '#cc3232',
+            backgroundColor: '#ffffff',
             onConflict: 'override',
             assets: {
                 windows80Ie10Tile: false,
@@ -44,7 +44,7 @@ module.exports = {
         safariPinnedTab: {
             pictureAspect: 'blackAndWhite',
             threshold: 71.09375,
-            themeColor: '#c73f3f'
+            themeColor: '#ffffff'
         }
     },
     settings: {
@@ -54,3 +54,4 @@ module.exports = {
     },
     markupFile: 'faviconData.json'
 };
+
