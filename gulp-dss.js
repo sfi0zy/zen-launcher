@@ -21,9 +21,11 @@ module.exports = function gulpDSS(options) {
 
             if (parsed.blocks) {
                 parsed.blocks.forEach((block) => {
-                    block.markup.compiled = pug.render(block.markup.example, {
-                        pretty: true
-                    });
+                    if (block.markup) {
+                        block.markup.compiled = pug.render(block.markup.example, {
+                            pretty: true
+                        });
+                    }
                 });
             }
 

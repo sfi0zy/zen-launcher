@@ -21,9 +21,7 @@ module.exports =  {
     },
 
     event(i, line) {
-        return {
-            event: line
-        };
+        return line;
     },
 
     requires(i, line) {

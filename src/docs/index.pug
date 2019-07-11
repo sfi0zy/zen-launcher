@@ -40,9 +40,9 @@ html(lang='en')
                         li.item: a(href='#overview') Overview
                     hr._separate-1
                     ul.mui-list.-no-bullets._separate-1
-                    each file in files
-                        each block in file.blocks
-                            li.item: a(href='#' + file.file) #{ block.name }
+                        each file in files
+                            each block in file.blocks
+                                li.item: a(href='#' + file.file) #{ block.name }
  
             main.mui-column.-s12.-m9
                 .mui-content-container
@@ -57,7 +57,7 @@ html(lang='en')
                             each block in file.blocks
                                 ._separate-5
                                     .mui-row
-                                        a(href=url)
+                                        a(href='#' + file.file)
                                             h4._bigger-1 #{ block.name }
                                     ._smaller-2.-grey-3 #{ file.file }
                                     if block.description
@@ -65,7 +65,7 @@ html(lang='en')
                                     if block.component
                                         ._separate-1._smaller-1
                                             span.-green-3: b (!) #{ block.component }
-                                            span.-grey-3 - Use Muilessium.get('#{ block.component }', id) to get it.
+                                            span.-grey-3 &nbsp;- Use Muilessium.get('#{ block.component }', id) to get it.
                                     if block.method
                                         ._separate-1
                                             ul.mui-list._smaller-1
@@ -231,7 +231,7 @@ html(lang='en')
                         var stateClass = _.getAttribute(example, 'data-class'),
                             targetChild = 0;
 
-                        if (example.childNodes[1]) {
+                        if (example.childNodes[1] && (example.childNodes[1].nodeType !== Node.TEXT_NODE)) {
                             targetChild = 1;
                         }
 
@@ -241,3 +241,4 @@ html(lang='en')
 
                 initExamples();
             });
+
