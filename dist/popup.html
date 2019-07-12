@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zen-launcher</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/muilessium-ui.min.css">
+    <link rel="stylesheet" href="css/main.min.css">
+    <style>
+      html, body {
+          height: 400px;
+          width: 300px;
+      }
+    </style>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+<link rel="manifest" href="images/favicon/site.webmanifest">
+<link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#ffffff">
+<link rel="shortcut icon" href="images/favicon/favicon.ico">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
+<meta name="msapplication-config" content="images/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff"></head>
+  <body>
+    <div class="mui-scroll-fix"></div>
+    <div class="mui-page-header -white-bg _shadow-1">
+      <div class="ui-content-container"><a class="-black -f-green-3" href="https://github.com/sfi0zy/zen-launcher" target="_blank">
+          <div class="mui-header-logo ui-logo"><img class="mui-image -js-lazy-load" data-src="./images/icon128.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="logo">
+            <noscript><img class="mui-image" src="./images/icon128.png" alt="logo"></noscript>
+            <h1 class="heading _bigger-0 _line-4r"><span class="first">Zen</span><span class="second">launcher</span></h1>
+          </div></a><a class="mui-button -cyan-3-bg -f-green-3-bg _right _separate-1" href="options.html">Edit</a></div>
+    </div>
+    <div class="ui-content-container _separate-1">
+      <div class="ui-items-grid _allow-empty"></div>
+    </div>
+    <div class="mui-svg-sprite">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <symbol id="mui-svg-icon--check" viewbox="0 0 512 512">
+          <path d="M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--close" viewbox="0 0 512 512">
+          <path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--arrow-down" viewbox="0 0 512 512">
+          <path d="M277.375 85v259.704l119.702-119.702L427 256 256 427 85 256l29.924-29.922 119.701 118.626V85h42.75z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--arrow-right" viewbox="0 0 512 512">
+          <path d="M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.701H85v42.75z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--arrow-left" viewbox="0 0 512 512">
+          <path d="M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.701H427v-42.75z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--arrow-up" viewbox="0 0 512 512">
+          <path d="M277.375 427V167.296l119.702 119.702L427 256 256 85 85 256l29.924 29.922 119.701-118.626V427h42.75z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--hamburger" viewbox="0 0 512 512">
+          <path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--spinner" viewbox="0 0 512 512">
+          <path d="M256 48c-75.033 0-144.531 40.658-181.373 106.107l-1.963 3.485 20.915 11.771 1.962-3.485C128.138 107.973 189.621 72 256 72c101.458 0 184 82.542 184 184a185.48 185.48 0 0 1-3.749 37.147l-.803 3.918 23.511 4.819.804-3.919A209.53 209.53 0 0 0 464 256c0-114.691-93.309-208-208-208zM416.459 346.119C383.862 404.027 322.379 440 256 440c-101.458 0-184-82.542-184-184 0-12.512 1.262-25.011 3.75-37.15l.803-3.918-23.511-4.819-.804 3.918A209.445 209.445 0 0 0 48 256c0 114.691 93.309 208 208 208 75.033 0 144.531-40.658 181.373-106.109l1.963-3.485-20.915-11.771-1.962 3.484z"/>
+          <path d="M384 256l64 64 64-64zM0 256l64-64 64 64z"/>
+        </symbol>
+        <symbol id="mui-svg-icon--tags" viewbox="0 0 512 512">
+          <path d="M472 239.2s-.1 0 0 0L282.1 48.1l-1.4-1.4h-.5c-7.5-7.2-16.1-10.9-27.1-11.1l-89.9-3.3-3.9-.1c-10.1.1-20 4.1-27.7 11.8l-27.1 27.2c7.4-6.6 16.6-10 26-10.1l3.8.1 89.8 3.3c11 .2 19.7 3.9 27.2 11.1h.5l1.4 1.4L443 268.1c10 10.8 10.7 28.2 0 38.9l29-28.9c10.6-10.7 10-28.1 0-38.9z"/>
+          <path d="M428 282.5h.3L238.6 91.4l-1.3-1.4h-.3c-7.5-7.2-15.9-10.9-26.9-11.1L120 75.6l-4-.1c-9.2.1-18.2 3.4-25.6 9.8-.3.3-.7.6-1 .9l-1.2 1.2-44.3 44.5C35.8 140 32 150.8 32 161.4v.1l.1 3.8 5.9 87.9v1.9c1 7.9 4.2 15.6 9.6 22l5.1 4.9L239 470.4l2.8 2.8c10.7 9.4 27.1 9 37.3-1.3l13.1-13.2c.5-.4.9-.8 1.4-1.3l26.9-27c-.2.1-.3.2-.5.4l108.3-109.3c10.6-10.7 10.7-28.2-.3-39zm-317.4-143c6.6-4 14.3-6.3 22.6-6.3 23.9 0 43.4 19.4 43.4 43.4 0 8.3-2.3 16-6.3 22.6-7.6 12.5-21.3 20.8-37 20.8-23.9 0-43.4-19.4-43.4-43.4-.1-15.8 8.2-29.5 20.7-37.1z"/>
+        </symbol>
+      </svg>
+    </div>
+    <script src="js/muilessium.min.js"></script>
+    <script src="js/muilessium-ui.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>

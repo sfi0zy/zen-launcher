@@ -1,7 +1,7 @@
 module.exports = {
-    masterPicture: 'src/images/favicon.png',
+    masterPicture: 'src/images/icon800.png',
     dest: 'dist/images/favicon',
-    iconsPath: '/images/favicon/',
+    iconsPath: 'images/favicon/',
     design: {
         ios: {
             pictureAspect: 'noChange',

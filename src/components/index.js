@@ -1,7 +1,16 @@
-import MyComponent from './_my-component/script';
+// -----------------------------------------------------------------------------
+// COMPONENTS INDEX
+// -----------------------------------------------------------------------------
+
+
+import ItemsGrid from './items-grid/script';
+import LinkItem from './link-item/script';
+import UrlsForm from './urls-form/script';
 
 const COMPONENTS = {
-    MyComponent,
+    ItemsGrid,
+    LinkItem,
+    UrlsForm,
 };
 
 export default COMPONENTS;

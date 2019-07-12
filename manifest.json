@@ -1,0 +1,28 @@
+{
+    "name": "Zen-launcher",
+    "manifest_version": 2,
+    "version": "1.0.0",
+    "description": "Apps launcher",
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "storage",
+        "notifications"
+    ],
+    "background": {
+        "page": "dist/background.html",
+        "persistent": false
+    },
+    "browser_action": {
+        "default_popup": "dist/popup.html"
+    },
+    "options_page": "dist/options.html",
+    "icons": {
+        "16":  "dist/images/icon16.png",
+        "48":  "dist/images/icon48.png",
+        "128": "dist/images/icon128.png"
+    },
+    "web_accessible_resources": [
+        "dist/images/icon128-2.png"
+    ]
+}

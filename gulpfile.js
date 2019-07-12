@@ -4,7 +4,7 @@ const fs           = require('fs');
 const path         = require('path');
 const argv         = require('yargs').argv;
 const webpack      = require('webpack-stream');
-const critical     = require('critical').stream;
+// const critical     = require('critical').stream;
 const browserSync  = require('browser-sync').create();
 const dss          = require('./gulp-dss.js');
 
@@ -78,9 +78,8 @@ gulp.task('build:lint-js', () => {
 
 
 gulp.task('build:compile-js', () => {
-    return gulp.src('./src/main.js')
+    return gulp.src(['./src/main.js', './src/background.js'])
         .pipe(webpack(require('./webpack.config.js')[ENVIRONMENT]))
-        .pipe($.rename('main.min.js'))
         .pipe(gulp.dest('./dist/js'))
         .pipe(browserSync.stream());
 });
@@ -105,7 +104,7 @@ gulp.task('build:pages', () => {
         .pipe($.realFavicon.injectFaviconMarkups(
             JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code))
         .pipe($.injectSvg())
-        .pipe(critical(require('./critical.config.js')))
+        // .pipe(critical(require('./critical.config.js')))
         .pipe(gulp.dest('./dist'))
         .pipe(browserSync.stream());
 });
@@ -199,11 +198,16 @@ gulp.task('browser-sync', () => {
 
     gulp.watch([
         './src/**/*.js',
-    ], gulp.series('build:compile-js'));
+    ], gulp.series(
+        'build:compile-js'
+    ));
 
     gulp.watch([
         './src/**/*.less',
-    ], gulp.series('build:compile-less', 'build:docs'));
+    ], gulp.series(
+        'build:compile-less',
+        'build:docs'
+    ));
 
     gulp.watch([
         './src/pages/**/*.pug'

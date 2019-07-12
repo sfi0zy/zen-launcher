@@ -7,16 +7,21 @@ block append footer
     //- ...
 
 block content
-    .mui-hero-header.-full-height.-green-3-bg
-        .content
-            img.mui-image.-circle.-js-lazy-load._shadow-3(data-src='./images/favicon.png' alt='Logo' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7')
-            noscript
-                img.mui-image.-circle._shadow-3(src='./images/favicon.png' alt='Logo')
-            h1 HTML template 2
-            ._separate-1
-                span Ivan Bogachev (
-                a(href='https://sfi0zy.github.io/') @sfi0zy
-                span ), 2019
-        .mui-ribbon.-classic.-top.-right
-            a(href='./docs' target='_blank') Docs
-
+    .mui-page-header.-white-bg._shadow-1
+        .ui-content-container
+            a.-black.-f-green-3(href='https://github.com/sfi0zy/zen-launcher' target='_blank')
+                .mui-header-logo.ui-logo
+                    img.mui-image.-js-lazy-load(data-src='./images/icon128.png' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='logo')
+                    noscript
+                        img.mui-image(src='./images/icon128.png' alt='logo')
+                    h1.heading._bigger-0._line-4r
+                        span.first Zen
+                        span.second launcher
+    .ui-content-container._separate-1
+        a.mui-button.-cyan-3-bg.-f-green-3-bg(href='popup.html') popup
+        span &nbsp;
+        a.mui-button.-cyan-3-bg.-f-green-3-bg(href='options.html') options
+        span &nbsp;
+        a.mui-button.-cyan-3-bg.-f-green-3-bg(href='background.html') background
+        span &nbsp;
+        a.mui-button.-cyan-3-bg.-f-green-3-bg(href='docs/index.html') docs

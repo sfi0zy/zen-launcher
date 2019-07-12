@@ -5,12 +5,18 @@
         "browser": true
     },
 
+    "globals": {
+        "chrome": true,
+        "Muilessium": true
+    },
+
     "rules": {
         "indent":                            ["error", 4, { "SwitchCase": 1 }],
         "array-callback-return":             "warn",
         "no-unused-vars":                    "warn",
         "import/first":                      "warn",
         "no-use-before-define":              "warn",
+        "import/no-named-default":           "off",
         "no-underscore-dangle":              "off",
         "no-duplicate-imports":              "off",
         "import/no-duplicates":              "off",

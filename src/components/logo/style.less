@@ -1,0 +1,50 @@
+// @name Logo
+// @description Logo for the page-header
+//
+// @requires mui-header-logo
+// @requires mui-image
+//
+// @markup
+//.mui-header-logo.ui-logo
+//    img.mui-image.-js-lazy-load(data-src='../images/icon128.png' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='logo')
+//    noscript
+//        img.mui-image(src='../images/icon128.png' alt='logo')
+//    h1.heading._bigger-0._line-4r
+//        span.first Zen
+//        span.second launcher
+
+.ui-logo {
+    min-width: 10rem;
+    margin-left: -.5rem;
+
+    > .mui-image {
+        display: inline-block;
+        float: left;
+        height: 3rem;
+        width: 3rem;
+        margin: .5rem;
+    }
+
+    > .heading {
+        height: 4rem;
+        width: 7rem;
+        float: left;
+        position: relative;
+    }
+
+    > .heading > .first {
+        position: absolute;
+        top: .4rem;
+        left: 0;
+        font-size: 2rem;
+        line-height: 1;
+    }
+
+    > .heading > .second {
+        position: absolute;
+        bottom: .5rem;
+        left: 0;
+        line-height: 1;
+    }
+}
+

@@ -1,0 +1,42 @@
+extends ./layouts/default.pug
+
+block append head
+    style.
+        html, body {
+            height: 400px;
+            width: 300px;
+        }
+
+block append footer
+    //- ...
+
+block content
+    header.mui-page-header.-white-bg._shadow-1
+        .ui-content-container
+            a.-black.-f-green-3(href='https://github.com/sfi0zy/zen-launcher' target='_blank')
+                .mui-header-logo.ui-logo
+                    img.mui-image.-js-lazy-load(data-src='./images/icon128.png' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='logo')
+                    noscript
+                        img.mui-image(src='./images/icon128.png' alt='logo')
+                    h1.heading._bigger-0._line-4r
+                        span.first Zen
+                        span.second launcher
+    .ui-content-container._separate-1
+        p.mui-p Specify up to 12 links and titles for them (one per line), for example:
+        pre.-grey-2-bg.
+            google https://google.com
+            habr https://habr.com
+        .ui-urls-form._separate-1
+            .mui-input-wrapper
+                .mui-textarea#urls-textarea
+                    textarea(placeholder='Specify the URLs (one per line)')
+            ._separate-1._text-center
+                a.mui-button.-cyan-3-bg.-f-green-3-bg#save-button
+                    svg.mui-svg-icon
+                        use(xlink:href='#mui-svg-icon--check')
+                    span &nbsp;Save
+            ._separate-1._text-center
+                .mui-spinner
+                    svg.mui-svg-icon
+                        use(xlink:href='#mui-svg-icon--spinner')
+

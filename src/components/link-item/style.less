@@ -1,0 +1,62 @@
+// @name Item
+// @description Link item.
+//
+// @component Item
+// @state -inactive
+//
+// @markup
+//a.ui-link-item(href='' target='_blank')
+//    span.firstletter._allow-empty G
+//    span.title._allow-empty google
+
+
+.ui-link-item {
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
+    overflow: hidden;
+    margin: .5rem;
+    position: relative;
+    cursor: pointer;
+    border-radius: .3rem;
+    background: @link-item[background];
+    color: @link-item[color];
+
+    &.-active {
+        background: @link-item[background];
+        color: @link-item[color];
+
+        &:hover {
+            background: @link-item[background--focused];
+        }
+    }
+
+    &.-inactive {
+        background: @link-item[background--inactive];
+        color: @link-item[color--inactive];
+        pointer-events: none;
+    }
+
+    > .firstletter {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-size: 5rem;
+        opacity: .2;
+        text-transform: uppercase;
+    }
+
+    > .title {
+        width: ~"calc(100% - 1rem)";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-size: .72rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-align: center;
+    }
+}
+

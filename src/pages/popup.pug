@@ -1,0 +1,27 @@
+extends ./layouts/default.pug
+
+block append head
+    style.
+        html, body {
+            height: 400px;
+            width: 300px;
+        }
+
+block append footer
+    //- ...
+
+block content
+    .mui-page-header.-white-bg._shadow-1
+        .ui-content-container
+            a.-black.-f-green-3(href='https://github.com/sfi0zy/zen-launcher' target='_blank')
+                .mui-header-logo.ui-logo
+                    img.mui-image.-js-lazy-load(data-src='./images/icon128.png' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='logo')
+                    noscript
+                        img.mui-image(src='./images/icon128.png' alt='logo')
+                    h1.heading._bigger-0._line-4r
+                        span.first Zen
+                        span.second launcher
+            a.mui-button.-cyan-3-bg.-f-green-3-bg._right._separate-1(href='options.html') Edit
+    .ui-content-container._separate-1
+        .ui-items-grid._allow-empty
+

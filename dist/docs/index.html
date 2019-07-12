@@ -1,0 +1,114 @@
+<!DOCTYPE html><html lang="en"><head><meta http-equiv="content-type" content="text/html;charset=UTF-8"><meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1"><title>Zen-Launcher (Docs)</title><link rel="apple-touch-icon" sizes="180x180" href="../images/favicons/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="../images/favicons/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="../images/favicons/favicon-16x16.png"><link rel="manifest" href="../images/favicons/manifest.json"><link rel="mask-icon" href="../images/favicons/safari-pinned-tab.svg" color="#050505"><meta name="theme-color" content="#ffffff"><link rel="prefetch" href="../js/muilessium.min.js?v=1.0.0"><link rel="prefetch" href="../js/muilessium-ui.min.js?v=1.0.0"><link rel="prefetch" href="../js/main.min.js?v=1.0.0"><link rel="prefetch" href="../css/muilessium-ui.min.css?v=1.0.0"><link rel="prefetch" href="../css/main.min.css?v=1.0.0"></head><body><div class="mui-scroll-fix"></div><header class="mui-page-header -white-bg _shadow-1"><div class="mui-content-container"><div class="mui-header-logo ui-logo"><img class="mui-image -js-lazy-load" data-src="../images/icon128.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="logo"><noscript><img class="mui-image" src="../images/icon128.png" alt="logo"></noscript><h1 class="heading _bigger-0 _line-4r"><span class="first">Zen</span><span class="second">launcher</span></h1></div></div></header><div class="mui-content-container"><aside class="mui-column -s12 -m3 _right"><div class="aside-navigation _smaller-1 _line-1-25 _separate-3" role="navigation"><ul class="mui-list -no-bullets _separate-1"><li class="item"><a href="#overview">Overview</a></li></ul><hr class="_separate-1"><ul class="mui-list -no-bullets _separate-1"><li class="item"><a href="#src/components/content-container/style.less">Content container</a></li><li class="item"><a href="#src/components/items-grid/style.less">ItemsGrid</a></li><li class="item"><a href="#src/components/link-item/style.less">Item</a></li><li class="item"><a href="#src/components/logo/style.less">Logo</a></li><li class="item"><a href="#src/components/urls-form/style.less">Urls form</a></li></ul></div></aside><main class="mui-column -s12 -m9"><div class="mui-content-container"><div class="_separate-3"><div class="mui-row"><a href="#overview"><h2 class="_bigger-2" id="overview">Overview</h2></a></div><p class="mui-p _separate-1">Apps launcher for Google Chrome.</p></div><div class="_separate-5"><div class="_allow-empty" id="src/components/index.less"></div><div class="_allow-empty" id="src/components/content-container/style.less"></div><div class="_separate-5"><div class="mui-row"><a href="#src/components/content-container/style.less"><h4 class="_bigger-1">Content container</h4></a></div><div class="_smaller-2 -grey-3">src/components/content-container/style.less</div><p class="mui-p _separate-1">Container for the content</p><div class="_separate-1"><div class="component-preview _separate-2">
+<div class="ui-content-container"></div></div><div class="mui-spoiler -max-height-20"><div class="title">Source code (Pug)</div><div class="content"><div class="_separate-2"><div class="_smaller-1"><pre class="source-code">.ui-content-container</pre></div></div></div></div></div></div><div class="_allow-empty" id="src/components/items-grid/style.less"></div><div class="_separate-5"><div class="mui-row"><a href="#src/components/items-grid/style.less"><h4 class="_bigger-1">ItemsGrid</h4></a></div><div class="_smaller-2 -grey-3">src/components/items-grid/style.less</div><p class="mui-p _separate-1">...</p><div class="_separate-1 _smaller-1"><span class="-green-3"><b>(!) ItemsGrid</b></span><span class="-grey-3">&nbsp;- Use Muilessium.get('ItemsGrid', id) to get it.</span></div><div class="_separate-1"><div class="component-preview _separate-2">
+<div class="ui-items-grid"><a class="ui-link-item" href="" target="_blank"><span class="firstletter">G</span><span class="title">google</span></a><a class="ui-link-item" href="" target="_blank"><span class="firstletter">G</span><span class="title">google</span></a><a class="ui-link-item" href="" target="_blank"><span class="firstletter">G</span><span class="title">google</span></a></div></div><div class="mui-spoiler -max-height-20"><div class="title">Source code (Pug)</div><div class="content"><div class="_separate-2"><div class="_smaller-1"><pre class="source-code">.ui-items-grid
+    a.ui-link-item(href='' target='_blank')
+        span.firstletter G
+        span.title google
+    a.ui-link-item(href='' target='_blank')
+        span.firstletter G
+        span.title google
+    a.ui-link-item(href='' target='_blank')
+        span.firstletter G
+        span.title google</pre></div></div></div></div></div></div><div class="_allow-empty" id="src/components/link-item/style.less"></div><div class="_separate-5"><div class="mui-row"><a href="#src/components/link-item/style.less"><h4 class="_bigger-1">Item</h4></a></div><div class="_smaller-2 -grey-3">src/components/link-item/style.less</div><p class="mui-p _separate-1">Link item.</p><div class="_separate-1 _smaller-1"><span class="-green-3"><b>(!) Item</b></span><span class="-grey-3">&nbsp;- Use Muilessium.get('Item', id) to get it.</span></div><div class="_separate-1"><div class="component-preview _separate-2"><a class="ui-link-item" href="" target="_blank"><span class="firstletter _allow-empty">G</span><span class="title _allow-empty">google</span></a></div><div class="state _separate-2"><h5 class="_smaller-1">Variant: -inactive</h5><div class="example _separate-2" data-class="-inactive"><a class="ui-link-item" href="" target="_blank"><span class="firstletter _allow-empty">G</span><span class="title _allow-empty">google</span></a></div></div><div class="mui-spoiler -max-height-20"><div class="title">Source code (Pug)</div><div class="content"><div class="_separate-2"><div class="_smaller-1"><pre class="source-code">a.ui-link-item(href='' target='_blank')
+    span.firstletter._allow-empty G
+    span.title._allow-empty google</pre></div></div></div></div></div></div><div class="_allow-empty" id="src/components/logo/style.less"></div><div class="_separate-5"><div class="mui-row"><a href="#src/components/logo/style.less"><h4 class="_bigger-1">Logo</h4></a></div><div class="_smaller-2 -grey-3">src/components/logo/style.less</div><p class="mui-p _separate-1">Logo for the page-header</p><div class="_smaller-1 -violet-3">Requires mui-header-logo</div><div class="_smaller-1 -violet-3">Requires mui-image</div><div class="_separate-1"><div class="component-preview _separate-2">
+<div class="mui-header-logo ui-logo"><img class="mui-image -js-lazy-load" data-src="../images/icon128.png" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" alt="logo"/>
+  <noscript><img class="mui-image" src="../images/icon128.png" alt="logo"/></noscript>
+  <h1 class="heading _bigger-0 _line-4r"><span class="first">Zen</span><span class="second">launcher</span></h1>
+</div></div><div class="mui-spoiler -max-height-20"><div class="title">Source code (Pug)</div><div class="content"><div class="_separate-2"><div class="_smaller-1"><pre class="source-code">.mui-header-logo.ui-logo
+    img.mui-image.-js-lazy-load(data-src='../images/icon128.png' src='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7' alt='logo')
+    noscript
+        img.mui-image(src='../images/icon128.png' alt='logo')
+    h1.heading._bigger-0._line-4r
+        span.first Zen
+        span.second launcher</pre></div></div></div></div></div></div><div class="_allow-empty" id="src/components/urls-form/style.less"></div><div class="_separate-5"><div class="mui-row"><a href="#src/components/urls-form/style.less"><h4 class="_bigger-1">Urls form</h4></a></div><div class="_smaller-2 -grey-3">src/components/urls-form/style.less</div><p class="mui-p _separate-1">...</p><div class="_separate-1 _smaller-1"><span class="-green-3"><b>(!) UrlsForm</b></span><span class="-grey-3">&nbsp;- Use Muilessium.get('UrlsForm', id) to get it.</span></div><div class="_smaller-1 -violet-3">Requires mui-input</div><div class="_smaller-1 -violet-3">Requires mui-textarea</div><div class="_smaller-1 -violet-3">Requires mui-button</div><div class="_smaller-1 -violet-3">Requires mui-svg-icon</div><div class="_separate-1"><div class="component-preview _separate-2">
+<div class="ui-urls-form">
+  <div class="mui-input-wrapper">
+    <div class="mui-textarea" id="docs-only-id--urls-form-textarea">
+      <textarea placeholder="Specify the URLs (one per line)"></textarea>
+    </div>
+  </div>
+  <div class="_separate-1 _text-center"><a class="mui-button -cyan-3-bg -f-green-3-bg" id="docs-only-id--urls-form-button">
+      <svg class="mui-svg-icon">
+        <use xlink:href="#mui-svg-icon--check"></use>
+      </svg><span>&nbsp;Save</span></a></div>
+  <div class="_separate-1 _text-center">
+    <div class="mui-svg-spinner">
+      <svg class="mui-svg-icon">
+        <use xlink:href="#mui-svg-icon--spinner"></use>
+      </svg>
+    </div>
+  </div>
+</div></div><div class="mui-spoiler -max-height-20"><div class="title">Source code (Pug)</div><div class="content"><div class="_separate-2"><div class="_smaller-1"><pre class="source-code">.ui-urls-form
+    .mui-input-wrapper
+        .mui-textarea#docs-only-id--urls-form-textarea
+            textarea(placeholder='Specify the URLs (one per line)')
+    ._separate-1._text-center
+        a.mui-button.-cyan-3-bg.-f-green-3-bg#docs-only-id--urls-form-button
+            svg.mui-svg-icon
+                use(xlink:href='#mui-svg-icon--check')
+            span &amp;nbsp;Save
+    ._separate-1._text-center
+        .mui-svg-spinner
+            svg.mui-svg-icon
+                use(xlink:href='#mui-svg-icon--spinner')</pre></div></div></div></div></div></div></div></div></main></div><div class="mui-page-footer"><span>Copyright &copy; Ivan Bogachev, 2019</span></div><div class="mui-svg-sprite"><svg version="1.1" xmlns="http://www.w3.org/2000/svg"><symbol id="mui-svg-icon--check" viewbox="0 0 512 512"><path d="M186.301 339.893L96 249.461l-32 30.507L186.301 402 448 140.506 416 110z"></path></symbol><symbol id="mui-svg-icon--close" viewbox="0 0 512 512"><path d="M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"></path></symbol><symbol id="mui-svg-icon--arrow-down" viewbox="0 0 512 512"><path d="M277.375 85v259.704l119.702-119.702L427 256 256 427 85 256l29.924-29.922 119.701 118.626V85h42.75z"></path></symbol><symbol id="mui-svg-icon--arrow-right" viewbox="0 0 512 512"><path d="M85 277.375h259.704L225.002 397.077 256 427l171-171L256 85l-29.922 29.924 118.626 119.701H85v42.75z"></path></symbol><symbol id="mui-svg-icon--arrow-left" viewbox="0 0 512 512"><path d="M427 234.625H167.296l119.702-119.702L256 85 85 256l171 171 29.922-29.924-118.626-119.701H427v-42.75z"></path></symbol><symbol id="mui-svg-icon--arrow-up" viewbox="0 0 512 512"><path d="M277.375 427V167.296l119.702 119.702L427 256 256 85 85 256l29.924 29.922 119.701-118.626V427h42.75z"></path></symbol><symbol id="mui-svg-icon--star" viewbox="0 0 512 512"><path d="M256 372.686L380.83 448l-33.021-142.066L458 210.409l-145.267-12.475L256 64l-56.743 133.934L54 210.409l110.192 95.525L131.161 448z"></path></symbol><symbol id="mui-svg-icon--hamburger" viewbox="0 0 512 512"><path d="M64 384h384v-42.666H64V384zm0-106.666h384v-42.667H64v42.667zM64 128v42.665h384V128H64z"></path></symbol><symbol id="mui-svg-icon--spinner" viewbox="0 0 512 512"><path d="M256 48c-75.033 0-144.531 40.658-181.373 106.107l-1.963 3.485 20.915 11.771 1.962-3.485C128.138 107.973 189.621 72 256 72c101.458 0 184 82.542 184 184a185.48 185.48 0 0 1-3.749 37.147l-.803 3.918 23.511 4.819.804-3.919A209.53 209.53 0 0 0 464 256c0-114.691-93.309-208-208-208zM416.459 346.119C383.862 404.027 322.379 440 256 440c-101.458 0-184-82.542-184-184 0-12.512 1.262-25.011 3.75-37.15l.803-3.918-23.511-4.819-.804 3.918A209.445 209.445 0 0 0 48 256c0 114.691 93.309 208 208 208 75.033 0 144.531-40.658 181.373-106.109l1.963-3.485-20.915-11.771-1.962 3.484z"></path><path d="M384 256l64 64 64-64zM0 256l64-64 64 64z"></path></symbol><symbol id="mui-svg-icon--tags" viewbox="0 0 512 512"><path d="M472 239.2s-.1 0 0 0L282.1 48.1l-1.4-1.4h-.5c-7.5-7.2-16.1-10.9-27.1-11.1l-89.9-3.3-3.9-.1c-10.1.1-20 4.1-27.7 11.8l-27.1 27.2c7.4-6.6 16.6-10 26-10.1l3.8.1 89.8 3.3c11 .2 19.7 3.9 27.2 11.1h.5l1.4 1.4L443 268.1c10 10.8 10.7 28.2 0 38.9l29-28.9c10.6-10.7 10-28.1 0-38.9z"></path><path d="M428 282.5h.3L238.6 91.4l-1.3-1.4h-.3c-7.5-7.2-15.9-10.9-26.9-11.1L120 75.6l-4-.1c-9.2.1-18.2 3.4-25.6 9.8-.3.3-.7.6-1 .9l-1.2 1.2-44.3 44.5C35.8 140 32 150.8 32 161.4v.1l.1 3.8 5.9 87.9v1.9c1 7.9 4.2 15.6 9.6 22l5.1 4.9L239 470.4l2.8 2.8c10.7 9.4 27.1 9 37.3-1.3l13.1-13.2c.5-.4.9-.8 1.4-1.3l26.9-27c-.2.1-.3.2-.5.4l108.3-109.3c10.6-10.7 10.7-28.2-.3-39zm-317.4-143c6.6-4 14.3-6.3 22.6-6.3 23.9 0 43.4 19.4 43.4 43.4 0 8.3-2.3 16-6.3 22.6-7.6 12.5-21.3 20.8-37 20.8-23.9 0-43.4-19.4-43.4-43.4-.1-15.8 8.2-29.5 20.7-37.1z"></path></symbol></svg></div><link rel="stylesheet" href="../css/muilessium-ui.min.css?v=1.0.0"><link rel="stylesheet" href="../css/main.min.css?v=1.0.0"><style>html {
+    font-family: 'Varela Round', sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+    aside {
+        display: none !important;
+    }
+}
+
+a,
+a:visited {
+    color: #1565c0;
+}
+
+a:hover,
+a:focus {
+    color: #000000;
+}
+
+.mui-p.-docs.-hint {
+    padding: 1rem;
+}
+
+.component-preview:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.aside-navigation {
+    padding: 0 1rem;
+}
+
+.source-code {
+    background: #eeeeee;
+    font-family: Menlo, "Bitstream Vera Sans Mono", "DejaVu Sans Mono", Monaco, Consolas, monospace;
+    font-size: .7rem;
+    padding: 1rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    border-left: 3px solid #9e9e9e;
+}
+</style><script src="../js/muilessium.min.js?v=1.0.0"></script><script src="../js/muilessium-ui.min.js?v=1.0.0"></script><script src="../js/main.min.js?v=1.0.0"></script><script>document.addEventListener('DOMContentLoaded', function() {
+    var _ = Muilessium.UTILS;
+
+    function initExamples() {
+        _.forEach(document.querySelectorAll('.state .example'), function(example) {
+            var stateClass = _.getAttribute(example, 'data-class'),
+                targetChild = 0;
+
+            if (example.childNodes[1] && (example.childNodes[1].nodeType !== Node.TEXT_NODE)) {
+                targetChild = 1;
+            }
+
+            _.addClass(example.childNodes[targetChild], stateClass);
+        });
+    }
+
+    initExamples();
+});</script></body></html>
