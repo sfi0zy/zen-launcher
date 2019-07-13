@@ -38,7 +38,7 @@ metro https://yandex.ru/metro/moscow
 ```sh
 git clone https://github.com/sfi0zy/zen-launcher.git
 cd zen-launcher
-npm ci
+npm i
 npm run dev
 npm run prod
 ```
