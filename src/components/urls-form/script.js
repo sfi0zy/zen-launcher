@@ -14,22 +14,25 @@ export default class UrlsForm extends $.FACTORY.BaseComponent {
         super(element, options);
 
         this.domCache = _.extend(this.domCache, {
-            spinner: element.querySelector('.mui-spinner')
+            textarea: element.querySelector('.mui-textarea'),
+            button:   element.querySelector('.mui-button'),
+            spinner:  element.querySelector('.mui-spinner')
         });
 
         this.components = {
-            textarea: $.get('Textarea', _.getAttribute(element.querySelector('.mui-textarea'), 'id')),
-            button:   $.get('Button',   _.getAttribute(element.querySelector('.mui-button'),   'id'))
+            textarea: $.get('Textarea', _.getAttribute(this.domCache.textarea, 'id')),
+            button:   $.get('Button',   _.getAttribute(this.domCache.button,   'id'))
         };
 
         this.loadSavedItems();
         this.initEventListeners();
     }
 
+
     loadSavedItems() {
         S.loadData('items', (items) => {
             if (items) {
-                this.components.textarea.domCache.textarea.value = '';
+                this.components.textarea.setValue('');
 
                 let value = '';
 
@@ -37,9 +40,7 @@ export default class UrlsForm extends $.FACTORY.BaseComponent {
                     value += `${item.title} ${item.url}\r\n`;
                 });
 
-                // Textareas setValue() method is not implemented yet.
-                // https://github.com/sfi0zy/muilessium/issues/73
-                this.components.textarea.domCache.textarea.value = value;
+                this.components.textarea.setValue(value);
             }
 
             _.animateElement(this.domCache.spinner, 'fade-out');
@@ -48,12 +49,11 @@ export default class UrlsForm extends $.FACTORY.BaseComponent {
         return this;
     }
 
+
     saveItems() {
         _.animateElement(this.domCache.spinner, 'fade-in');
 
-        // Don't use textarea.getValue() method due to bug.
-        // https://github.com/sfi0zy/muilessium/issues/72
-        const values = this.components.textarea.domCache.textarea.value.split('\n');
+        const values = this.components.textarea.getValue().split('\n');
 
         const items = [];
 

@@ -60,6 +60,6 @@
     "yargs": "13.2.4"
   },
   "dependencies": {
-    "muilessium": "1.0.1"
+    "muilessium": "1.0.3"
   }
 }

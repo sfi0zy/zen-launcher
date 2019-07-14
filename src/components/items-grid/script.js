@@ -15,13 +15,11 @@ export default class ItemsGrid extends $.FACTORY.BaseComponent {
     constructor(element, options) {
         super(element, options);
 
-        this.linkItems = [];
-
-
         this.generateItems();
 
         M.onMessage(M.types.ITEMS_UPDATED, this.generateItems.bind(this));
     }
+
 
     generateItems() {
         S.loadData('items', (items) => {

@@ -3,8 +3,8 @@
 // -----------------------------------------------------------------------------
 
 
-const $            = Muilessium;
-const _            = $.UTILS;
+const $ = Muilessium;
+const _ = $.UTILS;
 
 
 export default class LinkItem extends $.FACTORY.BaseComponent {
@@ -14,6 +14,7 @@ export default class LinkItem extends $.FACTORY.BaseComponent {
                     <span class='title _allow-empty'></span>
                 </a>`;
     }
+
 
     constructor(element, options = { url: '', title: '' }) {
         super(element, options);
@@ -30,6 +31,7 @@ export default class LinkItem extends $.FACTORY.BaseComponent {
 
         this.updateHtml();
     }
+
 
     updateHtml() {
         _.setAttribute(this.domCache.element, 'href', this.state.url);
