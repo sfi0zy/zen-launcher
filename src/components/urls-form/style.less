@@ -26,6 +26,10 @@
 .ui-urls-form {
     textarea {
         height: 13rem;
+
+        &:focus {
+            border-color: @urls-form[textarea-border-color--focused];
+        }
     }
 }
 
