@@ -36,7 +36,11 @@ export default class ItemsGrid extends $.FACTORY.BaseComponent {
             for (let i = 0; i < 12; i++) {
                 const id = _.aria.setId(elements[i]);
 
-                $.FACTORY.create('LinkItem', `#${id}`, items[i]);
+                if (items) {
+                    $.FACTORY.create('LinkItem', `#${id}`, items[i]);
+                } else {
+                    $.FACTORY.create('LinkItem', `#${id}`);
+                }
             }
         });
     }
